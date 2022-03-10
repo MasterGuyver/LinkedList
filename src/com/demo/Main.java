@@ -15,5 +15,13 @@ public class Main {
           System.out.print(list.get(i));
           System.out.print(" ");
       }
+      System.out.println();
+      list.delete(0);
+      for(int i = 0; i<list.size(); i++)
+        {
+            System.out.print(list.get(i));
+            System.out.print(" ");
+        }
+        System.out.println();
     }
 }

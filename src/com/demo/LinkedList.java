@@ -36,15 +36,22 @@ public class LinkedList {
     }
 
     public boolean delete(int index) {
-        Node current = beg;
         boolean flag = false;
-        for(int i = 0; i<index && current != null; i++) {
-            current = current.getNext();
-        }
-        if(current != null)
-        {
-            current = null;
+        if(index == 0) {
+            beg = beg.getNext();
             flag = true;
+        }
+        else {
+            Node current = beg;
+            Node next = beg.getNext();
+            for (int i = 0; i < index && next != null; i++) {
+                current = next;
+                next = current.getNext();
+            }
+            if (next != null) {
+                current.setNext(next);
+                flag = true;
+            }
         }
         return flag;
     }
@@ -55,7 +62,7 @@ public class LinkedList {
         do {
           current = current.getNext();
           ++i;
-        } while(current == null);
+        } while(current != null);
         return i;
     }
 }
