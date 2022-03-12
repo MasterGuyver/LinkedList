@@ -44,12 +44,13 @@ public class LinkedList {
         else {
             Node current = beg;
             Node next = beg.getNext();
-            for (int i = 0; i < index && next != null; i++) {
+            for (int i = 0; i < index - 1 && next != null; i++) {
                 current = next;
                 next = current.getNext();
             }
             if (next != null) {
-                current.setNext(next);
+                current.setNext(next.getNext());
+                next = null;
                 flag = true;
             }
         }
